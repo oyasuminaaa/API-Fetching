@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Tweets</title>
+</head>
+<body>
+    <h1>Fetch Tweets from Twitter</h1>
+    <form action="/get_tweets" method="POST">
+        <label for="usernames">Enter Twitter Usernames (comma-separated):</label><br>
+        <input type="text" id="usernames" name="usernames" required><br><br>
+
+        <label for="max_results">Number of Tweets to Fetch:</label><br>
+        <input type="number" id="max_results" name="max_results" min="1" required><br><br>
+
+        <input type="submit" value="Fetch Tweets">
+    </form>
+
+    {% if tweets %}
+        <h2>Tweets:</h2>
+        <ul>
+            {% for tweet in tweets %}
+                <li>
+                    <strong>{{ tweet.username }}</strong>: {{ tweet.tweet_text }}<br>
+                    <small>Posted on: {{ tweet.created_at }}</small><br>
+                    <a href="{{ tweet.link }}" target="_blank"></a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

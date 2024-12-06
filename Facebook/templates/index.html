@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Data Fetcher</title>
+</head>
+<body>
+    <h1>ดึงข้อมูลโพสต์จาก Facebook</h1>
+    <form action="/fetch" method="POST">
+        <label for="urls">URL ของเพจ (ใส่ 1 บรรทัดต่อ 1 URL):</label><br>
+        <textarea id="urls" name="urls" rows="5" cols="50" required></textarea><br><br>
+
+        <label for="results_limit">จำนวนโพสต์ที่ต้องการดึงข้อมูล:</label><br>
+        <input type="number" id="results_limit" name="results_limit" value="0" required><br><br>
+
+        <button type="submit">ดึงข้อมูล</button>
+    </form>
+</body>
+</html>
